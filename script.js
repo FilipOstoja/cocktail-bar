@@ -1,4 +1,10 @@
- !(function (t) {
+/*!
+ * Webflow: Front-end site library
+ * @license MIT
+ * Inline scripts may access the api using an async handler:
+ *   var Webflow = Webflow || [];
+ *   Webflow.push(readyFunction);
+ */ !(function (t) {
   var e = {};
   function n(i) {
     if (e[i]) return e[i].exports;
@@ -1357,12 +1363,46 @@
       n(15),
       (t.exports = n(17));
   },
-  
+  function (t, e, n) {
+    "use strict";
+    var i = n(0);
+    i.define(
+      "brand",
+      (t.exports = function (t) {
+        var e,
+          n = {},
+          r = document,
+          o = t("html"),
+          a = t("body"),
+          s = ".w-webflow-badge",
+          u = window.location,
+          c = /PhantomJS/i.test(navigator.userAgent),
+          d =
+            "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange";
+        function l() {
+          var n =
+            r.fullScreen ||
+            r.mozFullScreen ||
+            r.webkitIsFullScreen ||
+            r.msFullscreenElement ||
+            Boolean(r.webkitFullscreenElement);
+          t(e).attr("style", n ? "display: none !important;" : "");
+        }
+        function f() {
+          var t = a.children(s),
+            n = t.length && t.get(0) === e,
+            r = i.env("editor");
+          n ? r && t.remove() : (t.length && t.remove(), r || a.append(e));
+        }
+     
+      })
+    );
+  },
   function (t, e, n) {
     "use strict";
     var i = window.$,
       r = n(1) && i.tram;
- 
+   
     t.exports = (function () {
       var t = { VERSION: "1.6.0-Webflow" },
         e = {},
